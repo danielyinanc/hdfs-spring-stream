@@ -17,9 +17,9 @@ public class FileController {
 
     @RequestMapping("/file")
     public void getFileContents(HttpServletResponse response) throws IOException {
-        response.addHeader("Content-disposition", "attachment;filename=myfilename.txt");
+        response.addHeader("Content-disposition", "attachment;filename=README.txt");
         response.setContentType("txt/plain");
-        IOUtils.copy(hdfsFileAccess.readFile("/user/dyinanc/test.txt"), response.getOutputStream());
+        IOUtils.copy(hdfsFileAccess.readFile("/user/dyinanc/README.txt"), response.getOutputStream());
         response.flushBuffer();
     }
 }
